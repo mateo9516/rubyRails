@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Peliculas</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Genero</th>
+      <th>Sinopsis</th>
+      <th>Pais</th>
+      <th>Duracion</th>
+      <th>Calificacion</th>
+      <th>Director</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @peliculas.each do |pelicula| %>
+      <tr>
+        <td><%= pelicula.titulo %></td>
+        <td><%= pelicula.genero %></td>
+        <td><%= pelicula.sinopsis %></td>
+        <td><%= pelicula.pais %></td>
+        <td><%= pelicula.duracion %></td>
+        <td><%= pelicula.calificacion %></td>
+        <td><%= pelicula.director %></td>
+        <td><%= link_to 'Mostrar', pelicula , class:'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_pelicula_path(pelicula) , class:'btn btn-default' %></td>
+        <td><%= link_to 'Eliminar', pelicula, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Pelicula', new_pelicula_path , class:'btn btn-info' %>
